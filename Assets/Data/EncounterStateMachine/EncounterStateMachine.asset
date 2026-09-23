@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e69ba1097894459095c88e0843156, type: 3}
+  m_Name: EncounterStateMachine
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleStateMachine.SO_SimpleStateMachine
+  _stateMachineName: EncounterStateMachine
+  _states:
+  - {fileID: 11400000, guid: d7edde184dbb17749851818ca696a6ec, type: 2}
+  - {fileID: 11400000, guid: ca8ddfc2d6162dd49a9a3214c5fc3bd6, type: 2}
+  - {fileID: 11400000, guid: dae77d72a0894d3488a44b413e702ddc, type: 2}
+  - {fileID: 11400000, guid: 0f62f9eb780eee84ca38a173de776ce4, type: 2}
+  - {fileID: 11400000, guid: f9814b3c193606749b24c86a16d9ef3c, type: 2}
+  - {fileID: 11400000, guid: 699c5050ed5a68a48a1222abba8a9449, type: 2}
+  - {fileID: 11400000, guid: 856459102fb41c14b91db32f7973ea14, type: 2}
+  - {fileID: 11400000, guid: dd5ee5f1c8a658143bd1953e4b3de390, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41dfc76acd55494a99e064a0a50b9ba, type: 3}
+  m_Name: Aftermath
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleStateMachine.SO_SimpleState
+  _stateString: Aftermath
+  _stateDescription: What happens during this state
+  _toStates:
+  - {fileID: 11400000, guid: ca8ddfc2d6162dd49a9a3214c5fc3bd6, type: 2}
+  - {fileID: 11400000, guid: dd5ee5f1c8a658143bd1953e4b3de390, type: 2}
+  - {fileID: 11400000, guid: 856459102fb41c14b91db32f7973ea14, type: 2}
