@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Encounter.EncounterManager
   _autoStartTimer: 0
   _stateMachineData: {fileID: 11400000, guid: 3be52370ee4660246990e9b50b029a4a, type: 2}
+  _encounterOutcomeEvent: {fileID: 11400000, guid: d93b29d8f583c1b44bbd29771b24881d, type: 2}
 --- !u!114 &1972600295
 MonoBehaviour:
   m_ObjectHideFlags: 0

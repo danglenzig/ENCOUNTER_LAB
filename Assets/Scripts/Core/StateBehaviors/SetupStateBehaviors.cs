@@ -1,28 +1,37 @@
-using SimpleStateMachine;
-using System.Xml.Linq;
 using UnityEngine;
 
 namespace Encounter
 {
     
-    public class SetupStateHandler
+    public sealed class SetupStateBehaviors : IEncounterStateBehaviors
     {
 
-        public void SetupEncounter(EncounterManager em)
+        public void DoStateEnteredBehavior(EncounterManager em)
+        {
+            SetupEncounter(em);
+        }
+        public void DoStateExitedBehavior(EncounterManager em)
+        {
+            SetupEncounter(em);
+        }
+        public void DoUpdateBehavior(EncounterManager em)
+        {
+            SetupEncounter(em);
+        }
+
+        private void SetupEncounter(EncounterManager em)
         {
             // set everything up
             // - get the Current encounter data from the GameData singleton
             // - if no GameData singleton, get placeholder data from TestRig
 
-            EncounterData data = new EncounterData();
+            EncounterData data = new EncounterData(); // PLACEHOLDER
             // TODO: Replace ^^this with actual data from one of the two sources above
 
             em.Resolver = data.Resolver;
             em.PlayerData = data.PlayerData;
             em.EnemyDatas.AddRange(data.EnemyDatas);
             em.EncounterEnvironent = data.EncounterEnvironment;
-
-
 
             // finally...
             if (!em.StateMachine.TryTakeTransition(EncounterStates.DRAWUP))
