@@ -6,7 +6,7 @@ namespace Encounter
     public sealed class DiceCollection
     {
         private List<DieData> _dice;
-        public IReadOnlyList<DieData> Dice { get { return _dice; } }
+        public List<DieData> Dice { get { return _dice; } }
 
         public DiceCollection()
         {

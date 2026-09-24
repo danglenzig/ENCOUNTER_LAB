@@ -12,7 +12,8 @@ namespace Encounter
         }
         public void DoStateExitedBehavior(EncounterManager em)
         {
-            //...
+            //test that the resolver is set up
+            Debug.Log($"### SetupStateBehaviors.DoStateExitedBehavior: {em.Resolver.SayHello()}");
         }
         public void DoUpdateBehavior(EncounterManager em)
         {
@@ -25,8 +26,24 @@ namespace Encounter
             // - get the Current encounter data from the GameData singleton
             // - if no GameData singleton, get placeholder data from TestRig
 
-            EncounterData data = new EncounterData(); // PLACEHOLDER
-            // TODO: Replace ^^this with actual data from one of the two sources above
+            EncounterData data = null;
+
+            if (false) // replace with null-check on GameData instance
+            {
+                // Get the data from the GameData instance
+            }
+            else
+            {
+                // Get the data from the test rig
+                data = em.TestRig.GetEncounterData();
+            }
+
+            if (data == null)
+            {
+                // throw an error and return early
+                Debug.LogError($"### SetupStateBehavior: problem getting the setup data");
+                return;
+            }
 
             em.Resolver = data.Resolver;
             em.PlayerData = data.PlayerData;
