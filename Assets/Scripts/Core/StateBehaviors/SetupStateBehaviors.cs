@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Encounter
 {
     
-    public sealed class SetupStateBehaviors : IEncounterStateBehaviors
+    public sealed class SetupStateBehaviors : IStateBehaviors
     {
 
         public void DoStateEnteredBehavior(EncounterManager em)
@@ -12,11 +12,11 @@ namespace Encounter
         }
         public void DoStateExitedBehavior(EncounterManager em)
         {
-            SetupEncounter(em);
+            //...
         }
         public void DoUpdateBehavior(EncounterManager em)
         {
-            SetupEncounter(em);
+            //...
         }
 
         private void SetupEncounter(EncounterManager em)

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Encounter
 {
-    public sealed class PlayerDeadStateBehaviors : IEncounterStateBehaviors
+    public sealed class PlayerDeadStateBehaviors : IStateBehaviors
     {
         public void DoStateEnteredBehavior(EncounterManager em)
         {

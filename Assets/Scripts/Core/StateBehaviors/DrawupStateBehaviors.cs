@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Encounter
 {
-    public sealed class DrawupStateBehaviors : IEncounterStateBehaviors
+    public sealed class DrawupStateBehaviors : IStateBehaviors
     {
         public void DoStateEnteredBehavior(EncounterManager em)
         {

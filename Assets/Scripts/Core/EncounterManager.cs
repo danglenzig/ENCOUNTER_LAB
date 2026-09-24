@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Encounter
 {
-    public interface IEncounterStateBehaviors
+    public interface IStateBehaviors
     {
         public void DoStateEnteredBehavior(EncounterManager em);
         public void DoStateExitedBehavior(EncounterManager em);
@@ -28,14 +28,14 @@ namespace Encounter
         private EncounterTimer _timer;
 
         // Initialized in Awake
-        private IEncounterStateBehaviors _setupStateBehaviors = null;
-        private IEncounterStateBehaviors _drawupStateBehaviors = null;
-        private IEncounterStateBehaviors _selectStateBehaviors = null;
-        private IEncounterStateBehaviors _rollingStateBehaviors = null;
-        private IEncounterStateBehaviors _resolutionStateBehaviors = null;
-        private IEncounterStateBehaviors _aftermathStateBehaviors = null;
-        private IEncounterStateBehaviors _playerWinStateBehaviors = null;
-        private IEncounterStateBehaviors _playerDeadStateBehaviors = null;
+        private IStateBehaviors _setupStateBehaviors      = null;
+        private IStateBehaviors _drawupStateBehaviors     = null;
+        private IStateBehaviors _selectStateBehaviors     = null;
+        private IStateBehaviors _rollingStateBehaviors    = null;
+        private IStateBehaviors _resolutionStateBehaviors = null;
+        private IStateBehaviors _aftermathStateBehaviors  = null;
+        private IStateBehaviors _playerWinStateBehaviors  = null;
+        private IStateBehaviors _playerDeadStateBehaviors = null;
 
         //=======================================================
         // anything the state behaviors need should be `public`
@@ -44,6 +44,14 @@ namespace Encounter
         public EncounterCombatantData PlayerData { get; set; } = null;
         public List<EncounterCombatantData> EnemyDatas { get; private set; } = new List<EncounterCombatantData>();
 
+        public void AnnounceOutcome()
+        {
+            // WIP...
+            EncounterOutcomeData data = new EncounterOutcomeData();
+            // TODO: configure the outcome data
+            // and finally, pop off the payloaded event...
+            _encounterOutcomeEvent.TriggerEvent(data);
+        }
         // and so on...
         //======================================================
 
@@ -132,7 +140,6 @@ namespace Encounter
                 case EncounterStates.PLAYER_WIN:
                     _playerWinStateBehaviors.DoStateEnteredBehavior(this);
                     return;
-
                 default:
                     return;
             }
@@ -166,24 +173,10 @@ namespace Encounter
                 case EncounterStates.PLAYER_WIN:
                     _playerWinStateBehaviors.DoStateExitedBehavior(this);
                     return;
-
                 default:
                     return;
             }
         }
-
-        
-
-        private void AnnounceOutcome()
-        {
-            EncounterOutcomeData data = new EncounterOutcomeData();
-
-            // TODO: configure the outcome data
-
-            // finally...
-            _encounterOutcomeEvent.TriggerEvent(data);
-        }
-
     }
 }
 

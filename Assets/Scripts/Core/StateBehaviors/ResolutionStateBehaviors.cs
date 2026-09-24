@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Encounter
 {
-    public sealed class ResolutionStateBehaviors : IEncounterStateBehaviors
+    public sealed class ResolutionStateBehaviors : IStateBehaviors
     {
         public void DoStateEnteredBehavior(EncounterManager em)
         {

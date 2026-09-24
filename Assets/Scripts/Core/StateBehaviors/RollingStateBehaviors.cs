@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Encounter
 {
-    public sealed class RollingStateBehaviors : IEncounterStateBehaviors
+    public sealed class RollingStateBehaviors : IStateBehaviors
     {
         public void DoStateEnteredBehavior(EncounterManager em)
         {
