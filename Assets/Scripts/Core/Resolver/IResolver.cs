@@ -43,14 +43,4 @@ namespace Dice
             EnemyRollResult = enemyRollResult;
         }
     }
-
-
-    public sealed class DoNothingResolver : IResolver
-    {
-        public TurnOutcome GetTurnOutcome(ResolverInput resolverInput)
-        {
-            TurnOutcome blankOutcome = new TurnOutcome();
-            return blankOutcome;
-        }
-    }
 }

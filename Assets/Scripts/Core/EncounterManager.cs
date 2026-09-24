@@ -17,17 +17,23 @@ namespace Encounter
     [RequireComponent(typeof(EncounterTimer))]
     public class EncounterManager : MonoBehaviour
     {
+        //============================
         // Serialized in the inspector
+        //============================
         [SerializeField] private bool _autoStartTimer = true;
         [SerializeField] private SO_SimpleStateMachine _stateMachineData;
         [SerializeField] private SO_EventEncounterOutcomeDataPayload _encounterOutcomeEvent;
 
+        //======================
         // Taken from components
+        //======================
         private RuntimeSimpleStateMachine _stateMachine;
-        public RuntimeSimpleStateMachine StateMachine { get { return _stateMachine; } }
         private EncounterTimer _timer;
+        private EncounterTestRig _testRig;
 
+        //=====================
         // Initialized in Awake
+        //=====================
         private IStateBehaviors _setupStateBehaviors      = null;
         private IStateBehaviors _drawupStateBehaviors     = null;
         private IStateBehaviors _selectStateBehaviors     = null;
@@ -42,7 +48,9 @@ namespace Encounter
         public IResolver Resolver { get; set; } = null;
         public IEncounterEnvironent EncounterEnvironent { get; set; } = null;
         public EncounterCombatantData PlayerData { get; set; } = null;
+        public RuntimeSimpleStateMachine StateMachine { get { return _stateMachine; } }
         public List<EncounterCombatantData> EnemyDatas { get; private set; } = new List<EncounterCombatantData>();
+        public EncounterTestRig TestRig { get {  return _testRig; }  }
 
         public void AnnounceOutcome()
         {
@@ -57,7 +65,11 @@ namespace Encounter
 
         private void Awake()
         {
-            _timer = GetComponent<EncounterTimer>();
+            // grab what we need from the components
+            _timer   = GetComponent<EncounterTimer>();
+            _testRig = GetComponent<EncounterTestRig>();
+
+            // initialize the state machine
             _stateMachine = _stateMachineData.GetRuntimeSimpleStateMachine();
 
             _setupStateBehaviors      = new SetupStateBehaviors();
