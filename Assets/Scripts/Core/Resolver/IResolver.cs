@@ -7,6 +7,7 @@ namespace Dice
     public interface IResolver
     {
         public TurnOutcome GetTurnOutcome(ResolverInput resolverInput);
+        public string SayHello();
     }
     public sealed class CombatantOutcome
     {

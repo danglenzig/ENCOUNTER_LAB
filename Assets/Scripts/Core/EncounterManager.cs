@@ -121,6 +121,10 @@ namespace Encounter
             //Debug.Log($"### {name}: Seconds played: {secondsPlayed}");
         }
 
+        //============================
+        // State enter/exit behaviors:
+        //   - Uncomment as needed
+        //============================
         private void HandleStateEntered(string enteredState)
         {
             Debug.Log($"### {name}: Current state: {_stateMachine.CurrentStateName}");
@@ -135,22 +139,22 @@ namespace Encounter
                     _drawupStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.SELECT:
-                    _selectStateBehaviors.DoStateEnteredBehavior(this);
+                    //_selectStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.ROLLING:
-                    _rollingStateBehaviors.DoStateEnteredBehavior(this);
+                    //_rollingStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.RESOLUTION:
-                    _resolutionStateBehaviors.DoStateEnteredBehavior(this);
+                    //_resolutionStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.AFTERMATH:
-                    _aftermathStateBehaviors.DoStateEnteredBehavior(this);
+                    //_aftermathStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.PLAYER_DEAD:
-                    _playerDeadStateBehaviors.DoStateEnteredBehavior(this);
+                    //_playerDeadStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 case EncounterStates.PLAYER_WIN:
-                    _playerWinStateBehaviors.DoStateEnteredBehavior(this);
+                    //_playerWinStateBehaviors.DoStateEnteredBehavior(this);
                     return;
                 default:
                     return;
@@ -165,25 +169,25 @@ namespace Encounter
                     _setupStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.DRAWUP:
-                    _drawupStateBehaviors.DoStateExitedBehavior(this);
+                    //_drawupStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.SELECT:
-                    _setupStateBehaviors.DoStateExitedBehavior(this);
+                    //_setupStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.ROLLING:
-                    _rollingStateBehaviors.DoStateExitedBehavior(this);
+                    //_rollingStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.RESOLUTION:
-                    _resolutionStateBehaviors.DoStateExitedBehavior(this);
+                    //_resolutionStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.AFTERMATH:
-                    _aftermathStateBehaviors.DoStateExitedBehavior(this);
+                    //_aftermathStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.PLAYER_DEAD:
-                    _playerDeadStateBehaviors.DoStateExitedBehavior(this);
+                    //_playerDeadStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 case EncounterStates.PLAYER_WIN:
-                    _playerWinStateBehaviors.DoStateExitedBehavior(this);
+                    //_playerWinStateBehaviors.DoStateExitedBehavior(this);
                     return;
                 default:
                     return;

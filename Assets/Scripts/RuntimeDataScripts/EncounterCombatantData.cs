@@ -40,17 +40,17 @@ namespace Encounter
         private CombatantVariant _variant = CombatantVariant.NONE;
         // ^^NONE, PLAYER, MINION, HEAVY, BIG_BOSS
 
-        private DiceCollection _drawBag;
+        private DiceCollection _drawBag = new DiceCollection();
         // If this combatant is CombatantVariant.PLAYER, then this will contain
         //   the dice they chose from their persistent collection for this
         //   encounter.
         // Otherwise, (i.e. if this some variety of NPC), then this will contain
         //   the dice assigned 
 
-        private DiceCollection _inHand;
-        private DiceCollection _discardBag;
+        private DiceCollection _inHand = new DiceCollection();
+        private DiceCollection _discardBag = new DiceCollection();
 
-        private List<EncounterStatusEffect> _activeStatusEffects;
+        private List<EncounterStatusEffect> _activeStatusEffects = new List<EncounterStatusEffect>();
 
         // Public getters and setters for ^^above
         //...
@@ -64,7 +64,12 @@ namespace Encounter
         public int Health { get { return _health; } set { _health = value; } }
         // ^^if _health < 0, then -_health indicates the amount of overkill
 
-        public IReadOnlyList<EncounterStatusEffect> ActiveStatusEffects { get { return _activeStatusEffects; } }
+        public int Armor { get { return _armor; } set { _armor = value; } }
+        public string DisplayName { get { return _displayName; } set { _displayName = value; } }
+        public string CombatantUUID { get { return _combatantUUID; } set { _combatantUUID = value; } }
+        public CombatantVariant Variant { get { return _variant;  } set { _variant = value; } }
+        public List<EncounterStatusEffect> ActiveStatusEffects { get { return _activeStatusEffects; } }
+        public DiceCollection DrawBag { get { return _drawBag; } set { _drawBag = value; } }
 
         //================
         // PUBLIC METHODS

@@ -8,4 +8,8 @@ public sealed class BlankResolver : IResolver
         TurnOutcome blankOutcome = new TurnOutcome();
         return blankOutcome;
     }
+    public string SayHello()
+    {
+        return "Blank resolver says hello!";
+    }
 }
