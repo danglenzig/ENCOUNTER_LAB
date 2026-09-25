@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311c46dfab0b9f74a83516e4c35ac975, type: 3}
   m_Name: TestEnemyCombatantConfig
   m_EditorClassIdentifier: Assembly-CSharp::Encounter.SO_CombatantConfig
+  _displayName: Namey Nameson
+  _combatantID: 
+  _health: 20
+  _armor: 0
+  _prefab: {fileID: 0}
+  _variant: 2

@@ -23,6 +23,7 @@ namespace Encounter
         [SerializeField] private bool _autoStartTimer = true;
         [SerializeField] private SO_SimpleStateMachine _stateMachineData;
         [SerializeField] private SO_EventEncounterOutcomeDataPayload _encounterOutcomeEvent;
+        [SerializeField, Min(1)] private int _defaultInHandDiceQty = 5; 
 
         //======================
         // Taken from components
@@ -30,6 +31,7 @@ namespace Encounter
         private RuntimeSimpleStateMachine _stateMachine;
         private EncounterTimer _timer;
         private EncounterTestRig _testRig;
+        private IPresentation _presentationLayer;
 
         //=====================
         // Initialized in Awake
@@ -43,14 +45,19 @@ namespace Encounter
         private IStateBehaviors _playerWinStateBehaviors  = null;
         private IStateBehaviors _playerDeadStateBehaviors = null;
 
+        private IAIDiceSelector _aiDiceSelector           = null;
+
         //=======================================================
         // anything the state behaviors need should be `public`
         public IResolver Resolver { get; set; } = null;
         public IEncounterEnvironent EncounterEnvironent { get; set; } = null;
-        public EncounterCombatantData PlayerData { get; set; } = null;
         public RuntimeSimpleStateMachine StateMachine { get { return _stateMachine; } }
+        public EncounterCombatantData PlayerData { get; set; } = null;
         public List<EncounterCombatantData> EnemyDatas { get; private set; } = new List<EncounterCombatantData>();
+        public EncounterCombatantData EnemyInFocusData { get; set; } = null;
+
         public EncounterTestRig TestRig { get {  return _testRig; }  }
+        public int DefaultInHandDiceQty { get { return _defaultInHandDiceQty; } }
 
         public void AnnounceOutcome()
         {
@@ -60,14 +67,29 @@ namespace Encounter
             // and finally, pop off the payloaded event...
             _encounterOutcomeEvent.TriggerEvent(data);
         }
+        /*
+        public bool ValidateSetupData()
+        {
+            if (Resolver == null) return false;
+            if (PlayerData == null) return false;
+            if (EnemyDatas.Count <= 0) return false;
+            foreach (var enemyData in EnemyDatas)
+            {
+                if (enemyData == null) return false;
+            }
+            if (EncounterEnvironent == null) return false;
+            return true;
+        }
+        */
         // and so on...
         //======================================================
 
         private void Awake()
         {
             // grab what we need from the components
-            _timer   = GetComponent<EncounterTimer>();
-            _testRig = GetComponent<EncounterTestRig>();
+            _timer             = GetComponent<EncounterTimer>();
+            _testRig           = GetComponent<EncounterTestRig>();
+            _presentationLayer = GetComponent<IPresentation>();
 
             // initialize the state machine
             _stateMachine = _stateMachineData.GetRuntimeSimpleStateMachine();
@@ -80,6 +102,8 @@ namespace Encounter
             _aftermathStateBehaviors  = new AftermathStateBehaviors();
             _playerWinStateBehaviors  = new PlayerWinStateBehaviors();
             _playerDeadStateBehaviors = new PlayerDeadStateBehaviors();
+
+            _aiDiceSelector           = new AIDiceSelector();
         }
 
         private void OnEnable()

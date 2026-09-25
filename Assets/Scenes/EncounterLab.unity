@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1972600295}
   - component: {fileID: 1972600294}
   - component: {fileID: 1972600297}
+  - component: {fileID: 1972600298}
   m_Layer: 0
   m_Name: EncounterManager
   m_TagString: Untagged
@@ -245,6 +246,7 @@ MonoBehaviour:
   _autoStartTimer: 0
   _stateMachineData: {fileID: 11400000, guid: 3be52370ee4660246990e9b50b029a4a, type: 2}
   _encounterOutcomeEvent: {fileID: 11400000, guid: d93b29d8f583c1b44bbd29771b24881d, type: 2}
+  _defaultInHandDiceQty: 5
 --- !u!114 &1972600295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +291,18 @@ MonoBehaviour:
   _enemyConfigs:
   - {fileID: 11400000, guid: 601d677904ce81745a8fe2386f547537, type: 2}
   _environmentPrefab: {fileID: 4433165349199642900, guid: 62f53a6bb9a28084d9789c2436eeda4c, type: 3}
+--- !u!114 &1972600298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972600293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643833db937d4dd429fca9827b63394e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Encounter.EncounterPresentation
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

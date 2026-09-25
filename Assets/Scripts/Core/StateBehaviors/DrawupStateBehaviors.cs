@@ -6,7 +6,8 @@ namespace Encounter
     {
         public void DoStateEnteredBehavior(EncounterManager em)
         {
-            //...
+            //
+            EncounterCombatantData playerData = em.PlayerData;
         }
         public void DoStateExitedBehavior(EncounterManager em)
         {

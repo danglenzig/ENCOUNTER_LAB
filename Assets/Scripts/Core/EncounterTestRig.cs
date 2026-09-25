@@ -21,12 +21,13 @@ namespace Encounter
             d.EncounterEnvironment = (_environmentPrefab.GetComponent<IEncounterEnvironent>() != null) ? _environmentPrefab.GetComponent<IEncounterEnvironent>() : null;
 
             // TODOs...
-            //d.PlayerData = _playerConfig.GetRuntimeData(); // TODO
+            d.PlayerData = _playerConfig.GetRuntimeData(); // TODO
             List<EncounterCombatantData> enemyDatas = new List<EncounterCombatantData>();
             foreach (SO_CombatantConfig config in _enemyConfigs)
             {
-                //enemyDatas.Add(config.GetRuntimeData()); // TODO
+                enemyDatas.Add(config.GetRuntimeData()); // TODO
             }
+            d.EnemyDatas = enemyDatas;
 
             return d;
         }

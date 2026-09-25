@@ -45,9 +45,26 @@ namespace Encounter
                 return;
             }
 
+            //validate incoming data
+            bool isValid = (
+                data.Resolver             != null &&
+                data.PlayerData           != null &&
+                data.EnemyDatas.Count     > 0 &&
+                data.EncounterEnvironment != null
+                );
+
+            if (!isValid)
+            {
+                Debug.LogError($"### SetupStateBehaviors: Setup data failed validation");
+                return;
+            }
+
+
             em.Resolver = data.Resolver;
             em.PlayerData = data.PlayerData;
             em.EnemyDatas.AddRange(data.EnemyDatas);
+            em.EnemyInFocusData = em.EnemyDatas[0];
+            // if there is only one enemy, this this will always be the one in focus
             em.EncounterEnvironent = data.EncounterEnvironment;
 
             // finally...

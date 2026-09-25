@@ -25,7 +25,7 @@ namespace Encounter
         [SerializeField] private CombatantVariant _variant = CombatantVariant.NONE;
         
         // TODO...
-        [SerializeField] private List<SO_StatusEffect> _activeStatusEffects;
+        [SerializeField] private List<SO_StatusEffect> _activeStatusEffects = new List<SO_StatusEffect>();
         
         // TODO...
         [SerializeField] private SO_DiceBag _drawBag;
@@ -49,7 +49,6 @@ namespace Encounter
                 // TODO
                 //data.ActiveStatusEffects.Add(sO_Effect.GetRuntimeData());
             }
-
             return data;
         }
     }
